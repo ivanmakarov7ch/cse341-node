@@ -5,5 +5,5 @@ const controlControllers = require('../controllers/control');
 // Define routes
 router.get('/', controlControllers.frontend);
 router.get('/greeting', controlControllers.greeting);
-
+router.use('/users', require ('./users'));
 module.exports = router;
