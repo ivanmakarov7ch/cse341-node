@@ -7,7 +7,6 @@ const controlControllers = require('../controllers/control');
 // Define routes
 router.get('/', controlControllers.frontend);
 router.get('/greeting', controlControllers.greeting);
-router.use('/users', require ('./users'));
 router.use('/users', require('./users'));
 router.use('/professional', require('./professional'));
 

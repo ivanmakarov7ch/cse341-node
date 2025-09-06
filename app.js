@@ -22,9 +22,14 @@ mongodb.initDb((err) => {
     // Use main routes
     app.use('/', routes);
 
+    //for server
     app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+
+    //for local
+    /*app.listen(PORT, () => {
         console.log(`Server running on http://localhost:${PORT}`);
-    });
+    });*/
 });
 
 

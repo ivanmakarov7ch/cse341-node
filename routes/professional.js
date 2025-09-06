@@ -4,19 +4,13 @@ const router = express.Router();
 const mongodb = require('../db/database');
 
 router.get('/', async (req, res) => {
-    try {
-        const db = mongodb.getDatabase();                  // get DB instance
-        const professional = await db
-            .collection('professionals')                   // collection name
-            .findOne({});                                  // fetch first document
-        res.json(professional);                            // send JSON to frontend
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Error fetching professional data' });
-    }
+    const db = mongodb.getDatabase();                                       // get DB instance
+    const professional = await db.collection('professionals').findOne({}); // collection name  // fetch first document
+    res.json(professional);                                                 // send JSON to frontend
 });
 
 module.exports = router;
+
 
 //For local
 /*const express = require('express');
