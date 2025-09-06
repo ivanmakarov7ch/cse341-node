@@ -1,19 +1,17 @@
 const express = require('express');
 const app = express();
 const path = require('path'); //for frontend folder
+const controlControllers = require('./controllers/control');
+//const mongodb =require('./db/connect');
+//connectDB();
 
 app.use(express.static(path.join(__dirname, 'frontend'))); //for frontend folder
 
-app.get('/greeting', (req, res) => {
-  res.send("Hello Ivan into Node.JS!");
-});
+// Routes
+app.get('/', controlControllers.frontend);  
+app.get('/greeting', controlControllers.greeting);
  
-
-//my test of implenet front end
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
-});
-
+ 
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('Web Server is listening at port ' + (process.env.PORT || 3000));
