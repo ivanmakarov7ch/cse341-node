@@ -1,4 +1,4 @@
-//const path = require('path'); // needed for path.join
+const path = require('path');
 
 const greeting = (req, res) => {
     res.send("Hello Ivan into Node.JS!");

@@ -7,11 +7,8 @@ const controlControllers = require('./controllers/control');
 
 app.use(express.static(path.join(__dirname, 'frontend'))); //for frontend folder
 
-// Routes
-app.get('/', controlControllers.frontend);  
-app.get('/greeting', controlControllers.greeting);
- 
- 
+const routes = require('./routes/route');
+app.use('/', routes);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('Web Server is listening at port ' + (process.env.PORT || 3000));
