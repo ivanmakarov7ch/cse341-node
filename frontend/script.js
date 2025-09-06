@@ -6,7 +6,8 @@ async function apiFetch(url) {
 }
 
 const getData = async () => {
-  const data = await apiFetch('/professional');
+  //const data = await apiFetch('/professional'); I tried this one.Doesn't work.
+  const data = await apiFetch('https://cse341-node-xsp2.onrender.com/professional');
   displayAllData(data);
 };
 
