@@ -9,8 +9,8 @@ const initDb = async (callback) => {
 
     try {
         const client = await MongoClient.connect(process.env.MONGODB_URL);
-        database = client.db('portfolio'); // <-- use 'portfolio' database
-        console.log('✅ MongoDB connected to database: portfolio');
+        database = client.db('project1');
+        console.log('✅ MongoDB connected to database: project1');
         callback(null, database);
     } catch (err) {
         console.error('❌ MongoDB connection error:', err);
