@@ -11,6 +11,8 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'frontend')));
 
+
+//Not fake
 mongodb.initDb((err) => {
     if (err) {
         console.error(err);
@@ -24,3 +26,26 @@ mongodb.initDb((err) => {
         console.log(`Server running on http://localhost:${PORT}`);
     });
 });
+
+
+
+/*
+// ---------- Safe MongoDB init for FAKE start up
+mongodb.initDb((err) => {
+    if (err) {
+        console.warn('⚠️ MongoDB not connected. Running without database.');
+    } else {
+        console.log('✅ MongoDB connected successfully.');
+    }
+
+    // Use routes after DB attempt
+    app.use('/', routes);
+
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+});
+*/
+
+
+
