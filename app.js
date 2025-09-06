@@ -19,18 +19,19 @@ mongodb.initDb((err) => {
         process.exit(1);
     }
 
-    // Use main routes
-    app.use('/', routes);
+    app.use('/', routes);                                       // Use main routes
 
-    //for server
     app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-
+    console.log(`Server running on port ${PORT}`);              //for server
+    });
     //for local
-    /*app.listen(PORT, () => {
+    /*
+    app.listen(PORT, () => {
         console.log(`Server running on http://localhost:${PORT}`);
-    });*/
+    });
+    */
 });
+
 
 
 
