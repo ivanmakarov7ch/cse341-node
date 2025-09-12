@@ -9,7 +9,6 @@ router.get('/', controlControllers.frontend);
 router.get('/greeting', controlControllers.greeting);
 router.use('/users', require('./users'));
 router.use('/professional', require('./professional'));
-router.use('/contacts', require('./contacts'));
 
 module.exports = router;
 
