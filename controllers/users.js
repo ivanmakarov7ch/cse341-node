@@ -5,7 +5,7 @@ const getAll = async (req, res) => {
   try {
     const result = await mongodb
       .getDatabase()
-      .collection("users")
+      .collection("contacts")
       .find()
       .toArray();
     res.setHeader("Content-Type", "application/json");
@@ -20,7 +20,7 @@ const getSingle = async (req, res) => {
     const userId = new ObjectId(req.params.id);
     const result = await mongodb
       .getDatabase()
-      .collection("users")
+      .collection("contacts")
       .findOne({ _id: userId });
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(result);
@@ -41,7 +41,7 @@ const createUser = async (req, res) => {
   const response = await mongodb
     .getDatabase()
     .db()
-    .collection("users")
+    .collection("contacts")
     .insertOne(user);
   if (response.acknowledged) {
     res.status(204).send();
@@ -65,7 +65,7 @@ const updateUser = async (req, res) => {
   const response = await mongodb
     .getDatabase()
     .db()
-    .collection("users")
+    .collection("contacts")
     .ReplaceOne({ _id: userId }, user);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -81,7 +81,7 @@ const deleteUser = async (req, res) => {
   const response = await mongodb
     .getDatabase()
     .db()
-    .collection("users")
+    .collection("contacts")
     .deleteOne({ _id: userId }, true);
   if (response.deletedCount > 0) {
     res.status(204).send();
