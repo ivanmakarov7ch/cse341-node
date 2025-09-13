@@ -1,57 +1,27 @@
-const express = require('express');
+const express = require("express");
+const bodyParset = require("body-parser");
 const app = express();
-const path = require('path');
-const routes = require('./routes'); // <-- note: routes folder
-const mongodb = require('./db/database');
-const dotenv = require('dotenv');
+const path = require("path");
+const routes = require("./routes"); // <-- note: routes folder
+const mongodb = require("./db/database");
+const dotenv = require("dotenv");
 
 dotenv.config();
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'frontend')));
+app.use(express.static(path.join(__dirname, "frontend")));
+app.use(bodyParset.json()); // from teacher video
 
-
-//Not fake
 mongodb.initDb((err) => {
-    if (err) {
-        console.error(err);
-        process.exit(1);
-    }
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
 
-    app.use('/', routes);                                       // Use main routes
+  app.use("/", routes); // Use main routes
 
-    app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);              //for server
-    });
-    //for local
-    /*
-    app.listen(PORT, () => {
-        console.log(`Server running on http://localhost:${PORT}`);
-    });
-    */
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`); //for server
+  });
 });
-
-
-
-
-/*
-// ---------- Safe MongoDB init for FAKE start up
-mongodb.initDb((err) => {
-    if (err) {
-        console.warn('⚠️ MongoDB not connected. Running without database.');
-    } else {
-        console.log('✅ MongoDB connected successfully.');
-    }
-
-    // Use routes after DB attempt
-    app.use('/', routes);
-
-    app.listen(PORT, () => {
-        console.log(`Server running on http://localhost:${PORT}`);
-    });
-});
-*/
-
-
-
