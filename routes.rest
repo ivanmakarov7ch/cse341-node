@@ -1,0 +1,33 @@
+### Get all contacts
+GET https://cse341-node-xsp2.onrender.com/users
+
+### Get single contact
+GET https://cse341-node-xsp2.onrender.com/users/68bc78db822f2cec45fcac62
+
+### Create contact
+POST https://cse341-node-xsp2.onrender.com/users
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "johndoe@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1990-05-20"
+}
+
+### Update contact
+PUT https://cse341-node-xsp2.onrender.com/users/68bc78db822f2cec45fcac62
+Content-Type: application/json
+
+{
+  "firstName": "Johnny",
+  "lastName": "Doe",
+  "email": "johnny.doe@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1990-05-20"
+}
+
+### Delete contact
+DELETE https://cse341-node-xsp2.onrender.com/users/68bc78db822f2cec45fcac62
+Content-Type: application/json
