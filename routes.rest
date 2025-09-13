@@ -1,7 +1,7 @@
-### Get all contacts
+### Retrieve all contacts
 GET https://cse341-node-xsp2.onrender.com/users
 
-### Get single contact
+### Retrieve single contact
 GET https://cse341-node-xsp2.onrender.com/users/68bc78db822f2cec45fcac62
 
 ### Create contact
