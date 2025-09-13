@@ -64,7 +64,7 @@ const updateUser = async (req, res) => {
   const response = await mongodb
     .getDatabase()
     .collection("contacts")
-    .ReplaceOne({ _id: userId }, user);
+    .replaceOne({ _id: userId }, user);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
@@ -79,7 +79,7 @@ const deleteUser = async (req, res) => {
   const response = await mongodb
     .getDatabase()
     .collection("contacts")
-    .deleteOne({ _id: userId }, true);
+    .deleteOne({ _id: userId });
   if (response.deletedCount > 0) {
     res.status(204).send();
   } else {
