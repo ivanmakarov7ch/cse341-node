@@ -67,7 +67,7 @@ const updateUser = async (req, res) => {
     .db()
     .collection("users")
     .ReplaceOne({ _id: userId }, user);
-  if (response.ModifiedCount > 0) {
+  if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
     res
@@ -82,7 +82,7 @@ const deleteUser = async (req, res) => {
     .getDatabase()
     .db()
     .collection("users")
-    .remove({ _id: userId }, true);
+    .deleteOne({ _id: userId }, true);
   if (response.deletedCount > 0) {
     res.status(204).send();
   } else {
